@@ -51,8 +51,7 @@ class product {
 func retrieveProducts(EAN:String, eanType:String, market:String, target:String) {
     if EAN != "" {
         let query = PFQuery(className:"TPDCompare")
-        query.whereKey("EanOld", equalTo:EAN)
-        query.whereKey("EanNew", equalTo:EAN)
+        query.whereKey(eanType, equalTo:EAN)
         query.whereKey("Market", equalTo:market)
         query.findObjectsInBackgroundWithBlock {
             (objects: [PFObject]?, error: NSError?) -> Void in
