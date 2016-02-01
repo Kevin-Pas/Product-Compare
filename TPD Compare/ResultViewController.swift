@@ -31,7 +31,8 @@ class ResultViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-                
+        
+        self.eanOld.text = productsArray[0].eanOld
         self.eanNew.text = productsArray[0].eanNew
         self.nameOld.text = productsArray[0].nameOld
         self.nameNew.text = productsArray[0].nameNew

@@ -22,7 +22,7 @@ class company {
 }
 
 func retrieveCompanies() {
-    let query = PFQuery(className:"Companies")
+    let query = PFQuery(className:"companies")
     query.addAscendingOrder("Name")
     query.findObjectsInBackgroundWithBlock {
         (objects: [PFObject]?, error: NSError?) -> Void in
