@@ -24,6 +24,7 @@
 		9069FEA91C560FFF00168853 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9069FEA81C560FFF00168853 /* SystemConfiguration.framework */; };
 		9069FEAB1C56100800168853 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9069FEAA1C56100800168853 /* libz.tbd */; };
 		9069FEAD1C56101700168853 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9069FEAC1C56101700168853 /* libsqlite3.tbd */; };
+		908CB8C01C5FF9E100415063 /* BrandDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908CB8BF1C5FF9E100415063 /* BrandDetailViewController.swift */; };
 		90E355A91C50E4780013203A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E355A81C50E4780013203A /* AppDelegate.swift */; };
 		90E355AB1C50E4780013203A /* ScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E355AA1C50E4780013203A /* ScanViewController.swift */; };
 		90E355B01C50E4780013203A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 90E355AF1C50E4780013203A /* Assets.xcassets */; };
@@ -73,6 +74,7 @@
 		9069FEA81C560FFF00168853 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		9069FEAA1C56100800168853 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		9069FEAC1C56101700168853 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		908CB8BF1C5FF9E100415063 /* BrandDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrandDetailViewController.swift; sourceTree = "<group>"; };
 		90E355A51C50E4780013203A /* TPD Compare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TPD Compare.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		90E355A81C50E4780013203A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		90E355AA1C50E4780013203A /* ScanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanViewController.swift; sourceTree = "<group>"; };
@@ -176,6 +178,7 @@
 				9069FE931C52808000168853 /* Main.storyboard */,
 				90E4C1DD1C578271009D7FAB /* WelcomeViewController.swift */,
 				90E4C1DF1C579E28009D7FAB /* SearchViewController.swift */,
+				908CB8BF1C5FF9E100415063 /* BrandDetailViewController.swift */,
 				90E355AA1C50E4780013203A /* ScanViewController.swift */,
 				9069FE8F1C526FB300168853 /* ResultViewController.swift */,
 				900AEF1A1C5A52A8009750F8 /* declarations.swift */,
@@ -356,6 +359,7 @@
 				90E355A91C50E4780013203A /* AppDelegate.swift in Sources */,
 				900AEF1D1C5A5549009750F8 /* bestBrands.swift in Sources */,
 				900AEF631C5BB926009750F8 /* customCollectionCell.swift in Sources */,
+				908CB8C01C5FF9E100415063 /* BrandDetailViewController.swift in Sources */,
 				90E4C1E21C57A9DE009D7FAB /* customButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

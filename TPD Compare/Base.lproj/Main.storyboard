@@ -204,6 +204,39 @@
             </objects>
             <point key="canvasLocation" x="1279" y="1133"/>
         </scene>
+        <!--Brand Detail View Controller-->
+        <scene sceneID="QuC-50-epW">
+            <objects>
+                <viewController id="aht-Yt-M1E" customClass="BrandDetailViewController" customModule="TPD_Compare" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="mzJ-gT-QIs"/>
+                        <viewControllerLayoutGuide type="bottom" id="YPn-pr-n96"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="FgC-cM-0Mm">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oVv-J1-IhJ">
+                                <rect key="frame" x="279" y="122" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="oVv-J1-IhJ" firstAttribute="centerX" secondItem="FgC-cM-0Mm" secondAttribute="centerX" id="CK4-Jm-4Yc"/>
+                            <constraint firstItem="oVv-J1-IhJ" firstAttribute="centerY" secondItem="FgC-cM-0Mm" secondAttribute="centerY" id="r9L-Js-xpb"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="brandLabel" destination="oVv-J1-IhJ" id="S3L-fo-sYr"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="D0c-s7-xfy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1945" y="1192"/>
+        </scene>
         <!--Search View Controller-->
         <scene sceneID="jTV-yc-htR">
             <objects>
@@ -324,7 +357,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zCe-EP-Mug">
                                                     <rect key="frame" x="8" y="48" width="60" height="19"/>
                                                     <fontDescription key="fontDescription" type="system" weight="thin" pointSize="14"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -342,6 +375,7 @@
                                         <connections>
                                             <outlet property="collectionImage" destination="Szs-lI-b3e" id="5Tu-7d-coY"/>
                                             <outlet property="collectionLabel" destination="zCe-EP-Mug" id="1wn-gN-Js2"/>
+                                            <segue destination="aht-Yt-M1E" kind="show" identifier="BrandDetails" id="BT9-b7-fEh"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>

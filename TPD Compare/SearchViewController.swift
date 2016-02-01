@@ -87,6 +87,13 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UICollectionV
         } else if (segue.identifier == "showScan"){
             let dvc = segue.destinationViewController as! ScanViewController
             dvc.market = market!
+        } else if (segue.identifier == "BrandDetails"){
+            let brandDetailViewController = segue.destinationViewController as! BrandDetailViewController
+            if let selectedBrandCell = sender as? customCollectionCell {
+                let indexPath = BrandCollectionView.indexPathForCell(selectedBrandCell)!
+                let selectedBrand = bestBrands[indexPath.row]
+                brandDetailViewController.brands = selectedBrand
+            }
         }
     }
     
