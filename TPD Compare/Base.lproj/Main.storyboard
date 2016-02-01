@@ -20,7 +20,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Hg-YN-Ur4">
-                                <rect key="frame" x="170" y="175" width="260" height="250"/>
+                                <rect key="frame" x="170" y="165" width="260" height="270"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Product Compare" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="4Dz-o9-SDW">
                                         <rect key="frame" x="10" y="10" width="240" height="48"/>
@@ -29,7 +29,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BQA-ib-GfY" customClass="customButton" customModule="TPD_Compare" customModuleProvider="target">
-                                        <rect key="frame" x="10" y="198" width="240" height="42"/>
+                                        <rect key="frame" x="10" y="218" width="240" height="42"/>
                                         <fontDescription key="fontDescription" type="system" weight="thin" pointSize="25"/>
                                         <state key="normal" title="Next">
                                             <color key="titleColor" red="0.25098039220000001" green="0.2156862745" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -39,9 +39,9 @@
                                         </connections>
                                     </button>
                                     <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y0M-j6-XDf">
-                                        <rect key="frame" x="10" y="108" width="240" height="84"/>
+                                        <rect key="frame" x="10" y="108" width="240" height="100"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="84" id="HYo-lJ-esn"/>
+                                            <constraint firstAttribute="height" constant="100" id="HYo-lJ-esn"/>
                                         </constraints>
                                     </pickerView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Market" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G1L-dP-yo7">
@@ -55,7 +55,7 @@
                                     <constraint firstAttribute="trailing" secondItem="BQA-ib-GfY" secondAttribute="trailing" constant="10" id="2F2-tx-0yg"/>
                                     <constraint firstItem="4Dz-o9-SDW" firstAttribute="top" secondItem="5Hg-YN-Ur4" secondAttribute="top" constant="10" id="Bf8-mH-6Yw"/>
                                     <constraint firstAttribute="width" constant="260" id="Fp7-Fg-zGn"/>
-                                    <constraint firstAttribute="height" constant="250" id="MeO-tJ-8k8"/>
+                                    <constraint firstAttribute="height" constant="270" id="MeO-tJ-8k8"/>
                                     <constraint firstItem="4Dz-o9-SDW" firstAttribute="leading" secondItem="5Hg-YN-Ur4" secondAttribute="leading" constant="10" id="OA1-Da-O0l"/>
                                     <constraint firstAttribute="trailing" secondItem="y0M-j6-XDf" secondAttribute="trailing" constant="10" id="TA3-do-Ak2"/>
                                     <constraint firstAttribute="trailing" secondItem="4Dz-o9-SDW" secondAttribute="trailing" constant="10" id="dzM-M0-ndE"/>

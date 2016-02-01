@@ -14,6 +14,7 @@ var products = [product]()
 
 class product {
     
+    let eanOld:String
     let eanNew:String
     let nameOld:String
     let nameNew:String
@@ -29,7 +30,8 @@ class product {
     let packSizeOld:String
     let packSizeNew:String
     
-    init?(eanNew:String,nameOld:String, nameNew:String,packGroupOld:String,packGroupNew:String,marketValue:String,categoryValue:String,widthValue:String,heightValue:String,depthValue:String,taraWeight:String,netWeight:String,packSizeOld:String,packSizeNew:String){
+    init?(eanOld:String, eanNew:String,nameOld:String, nameNew:String,packGroupOld:String,packGroupNew:String,marketValue:String,categoryValue:String,widthValue:String,heightValue:String,depthValue:String,taraWeight:String,netWeight:String,packSizeOld:String,packSizeNew:String){
+        self.eanOld = eanOld
         self.eanNew = eanNew
         self.nameOld = nameOld
         self.nameNew = nameNew
@@ -48,10 +50,15 @@ class product {
     }
 }
 
-func retrieveProducts(EAN:String, eanType:String, market:String, target:String) {
+func retrieveProducts(EAN:String, market:String, target:String) {
     if EAN != "" {
-        let query = PFQuery(className:"TPDCompare")
-        query.whereKey(eanType, equalTo:EAN)
+        let eanOldQuery = PFQuery(className: "TPDCompare")
+        eanOldQuery.whereKey("EanOld", equalTo: EAN)
+        
+        let eanNewQuery = PFQuery(className: "TPDCompare")
+        eanNewQuery.whereKey("EanNew", equalTo: EAN)
+        
+        let query = PFQuery.orQueryWithSubqueries([eanOldQuery,eanNewQuery])
         query.whereKey("Market", equalTo:market)
         query.findObjectsInBackgroundWithBlock {
             (objects: [PFObject]?, error: NSError?) -> Void in
@@ -64,6 +71,7 @@ func retrieveProducts(EAN:String, eanType:String, market:String, target:String) 
                 if let objects = objects {
                     for object in objects {
                         print(object.objectId)
+                        let eanOld:String? = (object as PFObject)["EanOld"] as? String
                         let eanNew:String? = (object as PFObject)["EanNew"] as? String
                         let nameOld:String? = (object as PFObject)["NameOld"] as? String
                         let nameNew:String? = (object as PFObject)["NameNew"] as? String
@@ -78,7 +86,8 @@ func retrieveProducts(EAN:String, eanType:String, market:String, target:String) 
                         let netWeight:Int! = (object as PFObject)["NetWeight"] as? Int
                         let packSizeOld:Int! = (object as PFObject)["PackSizeOld"] as? Int
                         let packSizeNew:Int! = (object as PFObject)["PackSizeNew"] as? Int
-                        let fullProduct = product(eanNew: eanNew!,
+                        let fullProduct = product(eanOld: eanOld!,
+                            eanNew: eanNew!,
                             nameOld: nameOld!,
                             nameNew:nameNew!,
                             packGroupOld:packGroupOld!,

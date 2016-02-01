@@ -142,7 +142,7 @@ class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
             if metadataObj.stringValue != nil {
                 EANScan = metadataObj.stringValue
                 if segueTrigger == 0 {
-                    retrieveProducts(EANScan, eanType: "EanOld", market: market, target:"scan")
+                    retrieveProducts(EANScan, market: market, target:"scan")
                     showIndicator()
                     segueTrigger++
                 }

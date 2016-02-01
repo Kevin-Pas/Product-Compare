@@ -120,7 +120,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UICollectionV
             hideNoResults()
             eanCode = SearchTextField.text
             SearchTextField.endEditing(true)
-            retrieveProducts(eanCode, eanType: "EanOld", market: market!, target: "search")
+            retrieveProducts(eanCode, market: market!, target: "search")
             showIndicator()
         }
     }
