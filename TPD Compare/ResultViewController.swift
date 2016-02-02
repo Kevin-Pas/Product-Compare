@@ -9,7 +9,7 @@
 import UIKit
 import Parse
 
-class ResultViewController: UIViewController, UITextFieldDelegate {
+class ResultViewController: UIViewController {
 
     @IBOutlet weak var eanOld: UILabel!
     @IBOutlet weak var eanNew: UILabel!
@@ -50,4 +50,5 @@ class ResultViewController: UIViewController, UITextFieldDelegate {
 
     }
 
+    
 }
