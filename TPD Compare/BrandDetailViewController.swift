@@ -13,6 +13,7 @@ class BrandDetailViewController: UIViewController {
     var brands:bestBrand?
     
     @IBOutlet weak var brandLabel: UILabel!
+    @IBOutlet weak var BrandImage: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +21,7 @@ class BrandDetailViewController: UIViewController {
         
         if let brand = brands {
             brandLabel.text = brand.brand
+            BrandImage.image = brand.image
         }
     }
 

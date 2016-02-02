@@ -18,6 +18,8 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UICollectionV
     @IBOutlet weak var ActivityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var ActivityIndicatorView: UIView!
     @IBOutlet weak var BrandCollectionView: UICollectionView!
+    @IBOutlet weak var ActivityIndicatorViewHeight: NSLayoutConstraint!
+    @IBOutlet weak var SearchingLabel: UILabel!
     
     var market:String? = ""
     var eanCode:String! = ""
@@ -38,37 +40,54 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UICollectionV
     
     }
     
-    func showIndicator(){
-        UIView.animateWithDuration(0.5, animations: {
-            self.ActivityIndicatorView.alpha = 1
-        })
+    func showSearching(){
+        self.view.layoutIfNeeded()
+        UIView.animateWithDuration(0.2, animations: {
+            self.ActivityIndicatorViewHeight.constant = 24
+            self.SearchingLabel.alpha = 1
+            self.ActivityIndicator.alpha = 1
+            self.view.layoutIfNeeded()
+            }, completion: nil)
     }
     
-    func hideIndicator(){
-        UIView.animateWithDuration(0.5, animations: {
-            self.ActivityIndicatorView.alpha = 0
-        })
+    func hideSearching(){
+        self.view.layoutIfNeeded()
+        UIView.animateWithDuration(0.2, animations: {
+            self.ActivityIndicatorViewHeight.constant = 0
+            self.SearchingLabel.alpha = 0
+            self.ActivityIndicator.alpha = 0
+            self.view.layoutIfNeeded()
+            }, completion: nil)
     }
     
-    func showNoResults(){
-        UIView.animateWithDuration(0.5, animations: {
+    func showNoResults(text:String){
+        self.view.layoutIfNeeded()
+        UIView.animateWithDuration(0.2, animations: {
+            self.ActivityIndicatorViewHeight.constant = 24
             self.ErrorLabel.alpha = 1
-        })
+            self.ErrorLabel.text = text
+            self.view.layoutIfNeeded()
+            }, completion: nil)
     }
     
     func hideNoResults(){
-        UIView.animateWithDuration(0.5, animations: {
+        self.view.layoutIfNeeded()
+        UIView.animateWithDuration(0.2, animations: {
+            self.ActivityIndicatorViewHeight.constant = 0
             self.ErrorLabel.alpha = 0
-        })
+            self.view.layoutIfNeeded()
+            }, completion: nil)
     }
     
     func searchProductsRetrieved(notification:NSNotification){
+        hideSearching()
         if (products.count == 1) {
             performSegueWithIdentifier("SearchToResult", sender: nil)
         } else if (products.count == 0) {
-            showNoResults()
+            showNoResults("No results found")
+        } else if (products.count > 1) {
+            showNoResults("Multiple results error")
         }
-        hideIndicator()
     }
     
     func bestBrandsRetrieved(notification:NSNotification){
@@ -123,12 +142,12 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UICollectionV
     
     // MARK: Actions
     @IBAction func SearchButton(sender: UIButton) {
+        SearchTextField.endEditing(true)
         if (self.SearchTextField.text != ""){
             hideNoResults()
             eanCode = SearchTextField.text
-            SearchTextField.endEditing(true)
             retrieveProducts(eanCode, market: market!, target: "search")
-            showIndicator()
+            showSearching()
         }
     }
     

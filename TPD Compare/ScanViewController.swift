@@ -92,6 +92,9 @@ class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
         } else if (products.count == 0) {
             ErrorLabel.text = "No Results found"
             view.bringSubviewToFront(ErrorLabel)
+        } else if (products.count > 1) {
+            ErrorLabel.text = "Multiple results error"
+            view.bringSubviewToFront(ErrorLabel)
         }
         hideIndicator()
     }
