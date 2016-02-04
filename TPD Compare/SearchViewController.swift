@@ -82,11 +82,11 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UICollectionV
     func searchProductsRetrieved(notification:NSNotification){
         hideSearching()
         if (products.count == 1) {
+            performSegueWithIdentifier("SearchToResultDetail", sender: nil)
+        }  else if (products.count > 1) {
             performSegueWithIdentifier("SearchToResult", sender: nil)
         } else if (products.count == 0) {
             showNoResults("No results found")
-        } else if (products.count > 1) {
-            showNoResults("Multiple results error")
         }
     }
     
@@ -100,9 +100,9 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UICollectionV
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if (segue.identifier ==  "SearchToResult"){
-            let dvc = segue.destinationViewController as! ResultTableViewController
-            dvc.productsArray = products
+        if (segue.identifier ==  "SearchToResultDetail"){
+            let dvc = segue.destinationViewController as! ResultViewController
+            dvc.productArray = products[0]
         } else if (segue.identifier == "showScan"){
             let dvc = segue.destinationViewController as! ScanViewController
             dvc.market = market!

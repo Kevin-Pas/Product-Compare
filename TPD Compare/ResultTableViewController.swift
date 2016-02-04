@@ -10,8 +10,6 @@ import UIKit
 
 class ResultTableViewController: UITableViewController {
     
-    var productsArray = [product]()
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -30,7 +28,7 @@ class ResultTableViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return productsArray.count
+        return products.count
     }
 
     
@@ -38,10 +36,10 @@ class ResultTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("ResultTableCell", forIndexPath: indexPath) as! customTableCell
 
         // Configure the cell...
-        cell.LabelNameOld.text = productsArray[indexPath.row].nameOld
-        cell.LabelNameNew.text = productsArray[indexPath.row].nameNew
-        cell.LabelEanOld.text = productsArray[indexPath.row].eanOld
-        cell.LabelEanNew.text = productsArray[indexPath.row].eanNew
+        cell.LabelNameOld.text = products[indexPath.row].nameOld
+        cell.LabelNameNew.text = products[indexPath.row].nameNew
+        cell.LabelEanOld.text = products[indexPath.row].eanOld
+        cell.LabelEanNew.text = products[indexPath.row].eanNew
 
         return cell
     }
@@ -81,14 +79,23 @@ class ResultTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "ResultToDetail" {
+            let resultDetailViewController = segue.destinationViewController as! ResultViewController
+            
+            // Get the cell that generated this segue.
+            if let selectedResultCell = sender as? customTableCell {
+                let indexPath = tableView.indexPathForCell(selectedResultCell)!
+                let selectedResult = products[indexPath.row]
+                resultDetailViewController.productArray = selectedResult
+            }
+        }
+
     }
-    */
+    
 
 }

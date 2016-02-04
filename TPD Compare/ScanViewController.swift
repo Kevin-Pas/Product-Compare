@@ -82,27 +82,24 @@ class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
             print(error)
             return
         }
-        
     }
-    
     
     func scanProductsRetrieved(notification:NSNotification){
         if (products.count == 1) {
+            performSegueWithIdentifier("ScanToResultDetail", sender: nil)
+        } else if (products.count > 1) {
             performSegueWithIdentifier("ScanToResult", sender: nil)
         } else if (products.count == 0) {
             ErrorLabel.text = "No Results found"
-            view.bringSubviewToFront(ErrorLabel)
-        } else if (products.count > 1) {
-            ErrorLabel.text = "Multiple results error"
             view.bringSubviewToFront(ErrorLabel)
         }
         hideIndicator()
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if (segue.identifier == "ScanToResult"){
+        if (segue.identifier == "ScanToResultDetail"){
             let dvc = segue.destinationViewController as! ResultViewController
-            dvc.productsArray = products
+            dvc.productArray = products[0]
         }
     }
     

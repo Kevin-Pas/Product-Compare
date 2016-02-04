@@ -355,6 +355,7 @@
                                     <outlet property="LabelEanOld" destination="QQD-8g-xwj" id="ZkX-zd-wZx"/>
                                     <outlet property="LabelNameNew" destination="gdp-p8-k8y" id="vhc-Ty-Oea"/>
                                     <outlet property="LabelNameOld" destination="1eV-AJ-WqO" id="MMx-b0-ZVe"/>
+                                    <segue destination="h0S-Uu-uxE" kind="show" identifier="ResultToDetail" id="UQh-nW-u6I"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -556,6 +557,7 @@
                         <outlet property="SearchingLabel" destination="7MY-we-Sfb" id="26x-Ny-Q7g"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="showScan" id="2Bq-9V-j6b"/>
                         <segue destination="c9C-7Y-i23" kind="show" identifier="SearchToResult" id="qtA-6a-uev"/>
+                        <segue destination="h0S-Uu-uxE" kind="show" identifier="SearchToResultDetail" id="AtM-7t-3fY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8cP-tq-xcL" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -623,7 +625,8 @@
                         <outlet property="ActivityIndicator" destination="5ch-9F-VS7" id="ceT-gs-pOJ"/>
                         <outlet property="ActivityIndicatorView" destination="vrH-Ef-8VJ" id="ZH2-TC-u4P"/>
                         <outlet property="ErrorLabel" destination="eR9-KU-yTl" id="qU0-ED-Usz"/>
-                        <segue destination="h0S-Uu-uxE" kind="show" identifier="ScanToResult" id="sqy-0i-33c"/>
+                        <segue destination="c9C-7Y-i23" kind="show" identifier="ScanToResult" id="Xnc-h9-DhA"/>
+                        <segue destination="h0S-Uu-uxE" kind="show" identifier="ScanToResultDetail" action="showDetailViewController:sender:" id="hF9-Al-bmr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -1044,4 +1047,8 @@
         <image name="stgLogo" width="736" height="227"/>
         <image name="tempimage" width="70" height="47"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="AtM-7t-3fY"/>
+        <segue reference="qtA-6a-uev"/>
+    </inferredMetricsTieBreakers>
 </document>

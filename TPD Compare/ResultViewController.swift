@@ -28,26 +28,28 @@ class ResultViewController: UIViewController {
     @IBOutlet weak var packSizeNew: UILabel!
     
     var productsArray = [product]()
+    var productArray: product?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.eanOld.text = productsArray[0].eanOld
-        self.eanNew.text = productsArray[0].eanNew
-        self.nameOld.text = productsArray[0].nameOld
-        self.nameNew.text = productsArray[0].nameNew
-        self.packGroupOld.text = productsArray[0].packGroupOld
-        self.packGroupNew.text = productsArray[0].packGroupNew
-        self.marketValue.text = productsArray[0].marketValue
-        self.categoryValue.text = productsArray[0].categoryValue
-        self.widthValue.text = productsArray[0].widthValue
-        self.heightValue.text = productsArray[0].heightValue
-        self.depthValue.text = productsArray[0].depthValue
-        self.taraWeight.text = productsArray[0].taraWeight
-        self.netWeight.text = productsArray[0].netWeight
-        self.packSizeOld.text = productsArray[0].packSizeOld
-        self.packSizeNew.text = productsArray[0].packSizeNew
-
+        if let product = productArray {
+            self.eanOld.text = product.eanOld
+            self.eanNew.text = product.eanNew
+            self.nameOld.text = product.nameOld
+            self.nameNew.text = product.nameNew
+            self.packGroupOld.text = product.packGroupOld
+            self.packGroupNew.text = product.packGroupNew
+            self.marketValue.text = product.marketValue
+            self.categoryValue.text = product.categoryValue
+            self.widthValue.text = product.widthValue
+            self.heightValue.text = product.heightValue
+            self.depthValue.text = product.depthValue
+            self.taraWeight.text = product.taraWeight
+            self.netWeight.text = product.netWeight
+            self.packSizeOld.text = product.packSizeOld
+            self.packSizeNew.text = product.packSizeNew
+        }
     }
 
     
