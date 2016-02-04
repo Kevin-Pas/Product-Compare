@@ -39,13 +39,13 @@ class product {
         self.packGroupNew = packGroupNew
         self.marketValue = marketValue
         self.categoryValue = categoryValue
-        self.widthValue = String(widthValue)
-        self.heightValue = String(heightValue)
-        self.depthValue = String(depthValue)
-        self.taraWeight = String(taraWeight)
-        self.netWeight = String(netWeight)
-        self.packSizeOld = String(packSizeOld)
-        self.packSizeNew = String(packSizeNew)
+        self.widthValue = widthValue
+        self.heightValue = heightValue
+        self.depthValue = depthValue
+        self.taraWeight = taraWeight
+        self.netWeight = netWeight
+        self.packSizeOld = packSizeOld
+        self.packSizeNew = packSizeNew
     }
 }
 
@@ -76,21 +76,22 @@ func retrieveProducts(EAN:String, market:String, target:String) {
                 if let objects = objects {
                     for object in objects {
                         print(object.objectId)
-                        let eanOld:String? = (object as PFObject)["EanOld"] as? String
-                        let eanNew:String? = (object as PFObject)["EanNew"] as? String
+                        let eanOld:String! = (object as PFObject)["EanOld"] as? String
+                        print(eanOld)
+                        let eanNew:String! = (object as PFObject)["EanNew"] as? String
                         let nameOld:String? = (object as PFObject)["NameOld"] as? String
                         let nameNew:String? = (object as PFObject)["NameNew"] as? String
                         let packGroupOld:String? = (object as PFObject)["PackGroupOld"] as? String
                         let packGroupNew:String? = (object as PFObject)["PackGroupNew"] as? String
                         let marketValue:String? = (object as PFObject)["Market"] as? String
                         let categoryValue:String? = (object as PFObject)["Category"] as? String
-                        let widthValue:Int! = (object as PFObject)["Width"] as? Int
-                        let heightValue:Int! = (object as PFObject)["Height"] as? Int
-                        let depthValue:Int! = (object as PFObject)["Depth"] as? Int
-                        let taraWeight:Int! = (object as PFObject)["TaraWeight"] as? Int
-                        let netWeight:Int! = (object as PFObject)["NetWeight"] as? Int
-                        let packSizeOld:Int! = (object as PFObject)["PackSizeOld"] as? Int
-                        let packSizeNew:Int! = (object as PFObject)["PackSizeNew"] as? Int
+                        let widthValue:String! = (object as PFObject)["Width"] as? String
+                        let heightValue:String! = (object as PFObject)["Height"] as? String
+                        let depthValue:String! = (object as PFObject)["Depth"] as? String
+                        let taraWeight:String! = (object as PFObject)["TaraWeight"] as? String
+                        let netWeight:String! = (object as PFObject)["NetWeight"] as? String
+                        let packSizeOld:String! = (object as PFObject)["PackSizeOld"] as? String
+                        let packSizeNew:String! = (object as PFObject)["PackSizeNew"] as? String
                         let fullProduct = product(eanOld: eanOld!,
                             eanNew: eanNew!,
                             nameOld: nameOld!,
@@ -99,14 +100,15 @@ func retrieveProducts(EAN:String, market:String, target:String) {
                             packGroupNew:packGroupNew!,
                             marketValue:marketValue!,
                             categoryValue:categoryValue!,
-                            widthValue:String(widthValue),
-                            heightValue:String(heightValue),
-                            depthValue:String(depthValue),
-                            taraWeight:String(taraWeight),
-                            netWeight:String(netWeight),
-                            packSizeOld:String(packSizeOld),
-                            packSizeNew:String(packSizeNew))
+                            widthValue:widthValue!,
+                            heightValue:heightValue!,
+                            depthValue:depthValue!,
+                            taraWeight:taraWeight!,
+                            netWeight:netWeight!,
+                            packSizeOld:packSizeOld!,
+                            packSizeNew:packSizeNew!)
                         products.append(fullProduct!)
+                        print(fullProduct!.eanOld)
                     }
                     if (target == "search"){
                     NSNotificationCenter.defaultCenter().postNotificationName("searchProductsRetrieved", object: nil)
