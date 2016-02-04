@@ -101,7 +101,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UICollectionV
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if (segue.identifier ==  "SearchToResult"){
-            let dvc = segue.destinationViewController as! ResultViewController
+            let dvc = segue.destinationViewController as! ResultTableViewController
             dvc.productsArray = products
         } else if (segue.identifier == "showScan"){
             let dvc = segue.destinationViewController as! ScanViewController
