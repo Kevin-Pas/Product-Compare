@@ -46,7 +46,6 @@ class product {
         self.netWeight = String(netWeight)
         self.packSizeOld = String(packSizeOld)
         self.packSizeNew = String(packSizeNew)
-
     }
 }
 
@@ -58,7 +57,13 @@ func retrieveProducts(EAN:String, market:String, target:String) {
         let eanNewQuery = PFQuery(className: "TPDCompare")
         eanNewQuery.whereKey("EanNew", equalTo: EAN)
         
-        let query = PFQuery.orQueryWithSubqueries([eanOldQuery,eanNewQuery])
+        let nameOldQuery = PFQuery(className: "TPDCompare")
+        nameOldQuery.whereKey("SearchNameOld", containsString: EAN.lowercaseString)
+        
+        let nameNewQuery = PFQuery(className: "TPDCompare")
+        nameNewQuery.whereKey("SearchNameNew", containsString: EAN.lowercaseString)
+        
+        let query = PFQuery.orQueryWithSubqueries([eanOldQuery,eanNewQuery,nameOldQuery,nameNewQuery])
         query.whereKey("Market", equalTo:market)
         query.findObjectsInBackgroundWithBlock {
             (objects: [PFObject]?, error: NSError?) -> Void in
